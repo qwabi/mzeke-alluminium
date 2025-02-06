@@ -18,8 +18,10 @@ import {
   CheckCircle,
   Banknote,
   Headphones,
+  Menu,
+  X,
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Schema from './schema';
 
 const productCategories = [
@@ -91,6 +93,10 @@ const productCategories = [
 ];
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   useEffect(() => {
     const handleScroll = (e: Event) => {
       e.preventDefault();
@@ -100,6 +106,7 @@ export default function Home() {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' });
+          setIsMenuOpen(false); // Close mobile menu after clicking a link
         }
       }
     };
@@ -135,7 +142,7 @@ export default function Home() {
           className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
           role='banner'
         >
-          <div className='container flex h-20 items-center'>
+          <div className='container flex h-20 items-center justify-between'>
             <Link
               href='/'
               className='flex items-center space-x-3'
@@ -158,7 +165,7 @@ export default function Home() {
               </span>
             </Link>
             <nav
-              className='ml-auto flex gap-4 sm:gap-6'
+              className='hidden md:flex gap-4 sm:gap-6'
               role='navigation'
               aria-label='Main navigation'
             >
@@ -187,6 +194,57 @@ export default function Home() {
                 Contact
               </a>
             </nav>
+            <button
+              className='md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#004aad]'
+              onClick={toggleMenu}
+              aria-expanded={isMenuOpen}
+              aria-controls='mobile-menu'
+              aria-label='Toggle menu'
+            >
+              {isMenuOpen ? (
+                <X className='h-6 w-6' />
+              ) : (
+                <Menu className='h-6 w-6' />
+              )}
+            </button>
+          </div>
+          {/* Mobile menu */}
+          <div
+            className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}
+            id='mobile-menu'
+            role='navigation'
+            aria-label='Mobile navigation'
+          >
+            <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
+              <a
+                href='#products'
+                className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#004aad] hover:bg-gray-50'
+                onClick={toggleMenu}
+              >
+                Products
+              </a>
+              <a
+                href='#features'
+                className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#004aad] hover:bg-gray-50'
+                onClick={toggleMenu}
+              >
+                Features
+              </a>
+              <a
+                href='#testimonials'
+                className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#004aad] hover:bg-gray-50'
+                onClick={toggleMenu}
+              >
+                Testimonials
+              </a>
+              <a
+                href='#contact'
+                className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#004aad] hover:bg-gray-50'
+                onClick={toggleMenu}
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </header>
         <main className='flex-1' role='main'>
@@ -244,7 +302,7 @@ export default function Home() {
                     <Button
                       size='lg'
                       variant='outline'
-                      className='border-white bg-[#004aad]  text-white hover:bg-white/20'
+                      className='border-white text-white hover:bg-white/20'
                     >
                       View Products
                     </Button>
