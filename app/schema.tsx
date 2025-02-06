@@ -9,8 +9,8 @@ export default function Schema() {
           name: 'Mzeke Aluminium',
           image:
             'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezke%20logo-RfqmyJmEnVfKsT3egHx4MtRc8TCKzy.png',
-          '@id': 'https://mzeke-aluminium.co.za',
-          url: 'https://mzeke-aluminium.co.za',
+          '@id': 'https://mzeke.ayabonga.com',
+          url: 'https://mzeke.ayabonga.com',
           telephone: '+27612026116',
           address: {
             '@type': 'PostalAddress',

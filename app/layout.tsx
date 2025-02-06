@@ -6,7 +6,7 @@ import type React from 'react'; // Import React
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mzeke-aluminium.co.za'),
+  metadataBase: new URL('https://mzeke.ayabonga.com'),
   title: 'Mzeke Aluminium | Premium Aluminium & Glass Solutions in Cape Town',
   description:
     "Cape Town's trusted experts in custom aluminium doors, windows, and frameless glass installations. Quality craftsmanship and professional service guaranteed.",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_ZA',
-    url: 'https://mzeke-aluminium.co.za',
+    url: 'https://mzeke.ayabonga.com',
     siteName: 'Mzeke Aluminium',
     title: 'Mzeke Aluminium | Premium Aluminium & Glass Solutions in Cape Town',
     description:
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <link rel='canonical' href='https://mzeke-aluminium.co.za' />
+        <link rel='canonical' href='https://mzeke.ayabonga.com' />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
