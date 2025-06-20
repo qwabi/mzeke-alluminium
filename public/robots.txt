@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mzekealluspecialist.co.za
+
+# Sitemaps
+Sitemap: https://www.mzekealluspecialist.co.za/sitemap.xml
